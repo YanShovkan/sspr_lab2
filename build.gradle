@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.4'
+    id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    ext {
+        versionSLF4J = '1.7.24'
+        versionJetty = '9.3.16.v20170120'
+        versionJackson = '2.9.4'
+        versionSwagger = '2.5.0'
+    }
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: versionSLF4J
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.1.0'
+
+    implementation group: 'org.powermock', name: 'powermock-module-junit4', version: '1.7.4'
+    implementation group: 'org.powermock', name: 'powermock-api-mockito', version: '1.7.4'
+    implementation group: 'org.powermock', name: 'powermock-api-mockito-common', version: '1.7.4'
+    implementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
